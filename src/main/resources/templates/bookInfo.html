@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title> </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<h1>My friends</h1>
+		<table>
+		<tr th:each="book: ${books}">
+			<td th:text= "${book}"></td>
+		</tr>
+	</table>
+	
+	<p>Add a book (min. 3 letters)</p>
+	<form method="get">
+		<p>Name: <input type="text" name="book"/></p>
+		<input type="submit" value = "Submit"/>
+	</form>
+	
+	</body>
+</html>
