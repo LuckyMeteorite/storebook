@@ -28,7 +28,7 @@ public class BookstoreApp {
 			bookshelf.save(new Book("joulu tuli aikaisin", "emmää tiiä", "14", 6));
 			bookshelf.save(new Book("heppamaailma 2", "minä itte", "15", 4));
 
-			log.info("fetch all students");
+			log.info("fetch all books");
 			for (Book book : bookshelf.findAll()) {
 				log.info(book.toString());
 			}

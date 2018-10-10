@@ -2,19 +2,29 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <title>booklist</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css"
+	th:href="@{css/bootstrap.min.css}" />
+
 </head>
 <body>
 	<div class="col-md-4">
 		<h1>Bookshelf</h1>
 	</div>
 	<div class="col-md-4">
-		<h3>Author &emsp;/&emsp; Title &emsp;/&emsp; ISBN &emsp;/&emsp; Price</h3>
+		<h3>Author &emsp;/&emsp; Title &emsp;/&emsp; ISBN &emsp;/&emsp;
+			Price</h3>
 	</div>
-	
-	<table>
+
+	<table class="table table-striped">
+		<tr>
+			<th>writer</th>
+			<th>title</th>
+			<th>isbn</th>
+			<th>price</th>
+		</tr>
 		<tr th:each="book: ${bookshelf}">
 			<td th:text="${book.writer}"></td>
 			<td>/</td>
@@ -23,9 +33,16 @@
 			<td th:text="${book.isbn}"></td>
 			<td>/</td>
 			<td th:text="${book.price}"></td>
+			<td>/</td>
+			<td th:text="${book.id}"><a th:href="@{/delete/{id}(id=${book.id})}" class="btn btn-danger">Delete</a></td>
+			<td>/</td>
+			
+			
 		</tr>
+
 	</table>
 
 	<a href="/addbook" class="btn btn-success">Add Book</a>
+	<a href="/delete/2" class="btn btn-danger">Delete</a>
 </body>
 </html>
